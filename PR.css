@@ -1,0 +1,225 @@
+/* Styles fondamentaux */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Trebuchet MS', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #9fc5e0;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+/* FILIGRANE discret en arrière-plan */
+
+body::before {
+    content: "• MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA • MANGA";
+    position: fixed;
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.02);
+    transform: rotate(-30deg);
+    z-index: -1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    pointer-events: none;
+    width: 150%;
+    height: 150%;
+}
+
+.container {
+    background: #fcfcfc;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+
+/* Gestion des sections (onglets) */
+
+section {
+    display: none;
+    /* Cache toutes les sections par défaut */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+section.active {
+    display: block;
+    /* Affiche uniquement la section active */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Typographie */
+
+h1 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+
+/* BOUTONS BLEU CIEL */
+
+.btn-primary {
+    display: inline-block;
+    background-color: #96bfd4;
+    /* Bleu ciel */
+    color: #ffffff;
+    border: none;
+    padding: 14px 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #00BFFF;
+    /* Bleu ciel plus vif au survol */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 191, 255, 0.5);
+}
+
+
+/* Bouton de retour universel */
+
+.btn-retour {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #2c3e50;
+    color: rgb(157, 201, 228);
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    /* Masqué sur la page 1 */
+    transition: background 0.2s;
+    z-index: 10;
+}
+
+.btn-retour:hover {
+    background-color: #34495e;
+}
+
+
+/* Formulaire d'identité */
+
+#identity-form {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #9dc3de;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #7bbfda;
+}
+
+#identity-form .btn-primary {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* Galerie de videos */
+
+.video-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    background: #89b9d2;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.gallery-item video {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gallery-item p {
+    margin: 10px 0 5px 0;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+
+/* Version tablette/PC pour la galerie */
+
+@media (min-width: 480px) {
+    .video-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+    .container {
+        max-width: 700px;
+    }
+}
